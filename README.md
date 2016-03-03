@@ -19,6 +19,7 @@ For easy reading and comparing settings on different hosting was done:
 - easy reading colors in 2 stylesheet with embedded base64 graphics
 - visual differences when comparing settings on 2 different hostings by using color schemes; see [screenshots](screenshots/)
 - NO javascript
+- NO frames, nor iFrames
 - additional non-standard info
 - no credits and module descriptions, just technical info by key-value
 
@@ -90,7 +91,7 @@ where Regular Expressions are reside. You may want to catch `tr` with `class="h"
 
 Check line marked `** Table row:`, where new tables are builts.
 
-### Only 2 columns some 3 column tables is retrived
+### Only 2 columns of 3-column tables is retrived
 
 Are you really need it? If so, modify code if regular expressions at line where comments marked `** RE:`.
 You may need to catch all 3 values, and at neext close line marked `2016:`, they can be added to array which keep all gathered values.

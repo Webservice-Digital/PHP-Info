@@ -154,16 +154,35 @@ $phpinfo = new prettyPhpInfo();
 	.golden ::-webkit-scrollbar-track:hover{background:rgba(204,153,0,.3)}
 	.golden ::-webkit-scrollbar-track:active{background:rgba(204,153,0,.3)}
 </style>
-<link rel="shortcut icon" id="docIcon" type="image/png">
+<link rel="Shortcut icon" id="docIcon" type="image/png">
 </head>
 <body>
-	<nav>
+	<nav id="toc">
 		<a href="<?php echo  $_SERVER['PHP_SELF'] ?>" title="" class="php-logo">Renew</a>
 		<?php echo  $phpinfo->nav ?>
 	</nav>
 	<header>
-		<h1>v.<?php echo  PHP_VERSION ?> <em id="gold">Gold</em></h1>
-		
+		<h1>v.<?php echo  PHP_VERSION ?> </h1>
+		<ul class="topmenu">
+			<li><em id="gold">Switch color theme</em></li>
+			<li><a href="?do=update">Update</a></li>
+			<li>
+				<form action="">
+					Show native with
+					<select name="native" id="nativeMode">
+						<option value="-1" selected>INFO_ALL</option>
+						<option value="1" >INFO_GENERAL</option>
+						<option value="2" >INFO_CREDITS</option>
+						<option value="4" >INFO_CONFIGURATION</option>
+						<option value="8" >INFO_MODULES</option>
+						<option value="16">INFO_ENVIRONMENT</option>
+						<option value="32">INFO_VARIABLES</option>
+						<option value="64">INFO_LICENSE</option>
+					</select>
+					<button type="submit">&#10151;</button>
+				</form>
+			</li>
+		</ul>
 	</header>
 	<article>
 	<?php echo  $phpinfo->content ?>

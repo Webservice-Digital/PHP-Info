@@ -20,16 +20,18 @@
 
 		/*****************/
 
-		var docIcon = d.getElementById('docIcon');
-		function setIcon() {
-			docIcon.href = window.getComputedStyle(d.getElementsByClassName('php-logo')[0],null).getPropertyValue('background-image').match(/url\(("?)(.+)\1\)/)[2];
-		}
-		setIcon();
 		// lets colors to be more sandy smoothy, and remember this
 		var storeKeyName = 'phpInfoGold';
 		var themeClassName = 'golden';
 		if (localStorage.getItem(storeKeyName)==='true')
 			d.body.classList.add(themeClassName);
+		// lets tab icon changes too
+		var docIcon = d.getElementById('docIcon');
+		function setIcon() {
+			docIcon.href = window.getComputedStyle(d.getElementsByClassName('php-logo')[0],null).getPropertyValue('background-image').match(/url\(("?)(.+)\1\)/)[2];
+		}
+		setIcon();
+		// lets take control on it!
 		d.getElementById('gold').addEventListener('click',
 			function(e){
 				d.body.classList.toggle(themeClassName);	

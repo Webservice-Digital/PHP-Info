@@ -6,6 +6,61 @@
  * @copyright	(c)2009,2013,2015 Constantin Loskutov, www.syncap.ru
  *
  */
+
+define('PPI_VERSION', '2016-03-03-21');
+define('PPI_GITHUB_SOURCE_PATH', 'https://raw.githubusercontent.com/SynCap/PHP-Info/master/info.php');
+
+/*
+
+  Very old school mini router for some additional commands
+
+  native - launch native phpinfo($mode) with `mode` as another GET param
+  update - get fresh version from GitHub and launch it
+
+*/
+if (isset($_GET['do'])) {
+
+	switch ($_GET['do']) {
+		case 'native':
+			/*
+				If we need, we can call native phpinfo(). In this case we don't need any other porcessings.
+				Just do it, then die. ;)
+
+				INFO_GENERAL        1
+				INFO_CREDITS        2
+				INFO_CONFIGURATION  4
+				INFO_MODULES        8
+				INFO_ENVIRONMENT   16
+				INFO_VARIABLES     32
+				INFO_LICENSE       64
+				INFO_ALL           -1
+
+				if requested mode is NOT integer in range of INFO_GENERAL..INFO_LICENSE, 
+				for example some textual or non-legal integer, we assume default value INFO_ALL
+			*/
+			$mode = 0+$_GET['mode'] & 64 > 0 
+				?$_GET['mode'] 
+				: -1 ;
+			phpinfo($mode);
+			die();
+			break;
+		
+		case 'update':
+			$remoteSource = @file_get_contents(PPI_GITHUB_SOURCE_PATH);
+			if (
+					($remoteSource !== FALSE)
+//					&&
+//					(file_put_contents(__FILE__, $remoteSource ) !== FALSE)
+				) {
+				header('Location: '.$_SERVER["SCRIPT_NAME"]);
+				exit('Starting with updated version');
+			}
+			;
+			break;
+	}
+
+}
+
 class prettyPhpInfo
 {
 	public $nav = "";
@@ -73,21 +128,41 @@ $phpinfo = new prettyPhpInfo();
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <title>PHP info :: <?php echo  $_SERVER['HTTP_HOST'].' – '.PHP_VERSION ?></title>
+<link rel="shortcut icon" id="docIcon" type="image/png">
 <link rel="stylesheet" href="css/info.css">
-<link rel="shortcut icon" id="docIcon" type="image/png" href="img/b2.png">
 </head>
 <body>
-  <nav>
-	<a href="<?php echo  $_SERVER['PHP_SELF'] ?>" title="" class="php-logo">Renew</a>
-	<?php echo  $phpinfo->nav ?>
-  </nav>
+	<nav id="toc">
+		<a href="<?php echo  $_SERVER['PHP_SELF'] ?>" title="" class="php-logo">Renew</a>
+		<?php echo  $phpinfo->nav ?>
+	</nav>
 	<header>
-		<h1>v.<?php echo  PHP_VERSION ?> <em id="gold">Gold</em></h1>
-		
+		<h1>v.<?php echo  PHP_VERSION ?> </h1>
+		<ul class="topmenu">
+			<li><em id="gold">Colors</em></li>
+			<li>
+				<form action="" method="GET" id="formShowNative">					
+					<input type="hidden" name="do" value="native">
+					<select name="mode" id="nativeMode">
+						<option selected>Show native with…</option>
+						<option value="-1">INFO_ALL</option>
+						<option value="1" >INFO_GENERAL</option>
+						<option value="2" >INFO_CREDITS</option>
+						<option value="4" >INFO_CONFIGURATION</option>
+						<option value="8" >INFO_MODULES</option>
+						<option value="16">INFO_ENVIRONMENT</option>
+						<option value="32">INFO_VARIABLES</option>
+						<option value="64">INFO_LICENSE</option>
+					</select>
+					<button type="submit" class="btn">&#10151;</button>
+				</form>
+			</li>
+			<li><a href="?do=update">Update</a></li>
+		</ul>
 	</header>
-  <article>
-  <?php echo  $phpinfo->content ?>
-  </article>
+	<article>
+	<?php echo  $phpinfo->content ?>
+	</article>
 
 <script src="info.js"></script>
 <script></script>
