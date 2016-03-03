@@ -79,5 +79,8 @@
 			if (e.code === 'Escape') 
 				d.getElementsByClassName('filterForm')[0].reset();
 			// if (e.keyCode === 27) d.getElementsByClassName('filterForm')[0].reset();
-		})
+		});
+		nativeMode.addEventListener('change', function (e) {
+			formShowNative.submit();
+		});
 	})(document);

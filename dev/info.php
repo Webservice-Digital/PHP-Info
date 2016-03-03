@@ -7,7 +7,7 @@
  *
  */
 
-define('PPI_VERSION', '2016-03-03-21');
+define('PPI_VERSION', '2016-34');
 define('PPI_GITHUB_SOURCE_PATH', 'https://raw.githubusercontent.com/SynCap/PHP-Info/master/info.php');
 
 /*
@@ -157,7 +157,7 @@ $phpinfo = new prettyPhpInfo();
 					<button type="submit" class="btn">&#10151;</button>
 				</form>
 			</li>
-			<li><a href="?do=update">Update</a></li>
+			<li><a href="?do=update" title="Force update from GitHub">v.<?= PPI_VERSION ?></a></li>
 		</ul>
 	</header>
 	<article>
