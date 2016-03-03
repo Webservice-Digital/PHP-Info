@@ -100,6 +100,6 @@ Check line marked `** Table row:`, where new tables are builts.
 	
 ## License
 
-Distribution granted with BSD-style [license](LICENSE.TXT)
+Distribution granted with MIT [license](LICENSE)
 
 [php-info-logo-8]:dev/img/php-info-blue-8.png
