@@ -61,9 +61,9 @@ FLTF;
 			preg_match("~<h2>(.*)</h2>~", $line, $title) ? $cat = $title[1] : null;
 			if
 				(
-					preg_match("~<tr><td[^>]+>([^<]*)</td><td[^>]+>([^<]*)</td></tr>~", $line, $val)
+					preg_match("~<tr><td[^>]+>([^<]*)</td><td[^>]+>([^<]*)</td></tr>~", $line, $val) // ** RE:
 					OR
-					preg_match("~<tr><td[^>]+>([^<]*)</td><td[^>]+>([^<]*)</td><td[^>]+>([^<]*)</td></tr>~", $line, $val)
+					preg_match("~<tr><td[^>]+>([^<]*)</td><td[^>]+>([^<]*)</td><td[^>]+>([^<]*)</td></tr>~", $line, $val) // ** RE:
 				)
 					$info_arr[$cat][$val[1]] = str_replace(';','; ', $val[2]);// 2016: the same made in JS, but better: on non Windows servers replaced `:` but not `;`
 		}
@@ -82,7 +82,7 @@ FLTF;
 			//    We need an ability to show exact section on startup, we need a headers separated from tables, and so on...
 			$this->content .= "<section id=\"$catID\" class=\"phpinfo-section\">\n<h2>$cat <a class=\"mark\" href=\"#$catID\">#</a></h2>\n<table>\n<tbody>\n";
 			foreach($vals as $key=>$val) {
-				$this->content .= "<tr><td>$key</td><td>$val</td>\n";
+				$this->content .= "<tr><td>$key</td><td>$val</td>\n"; // ** Table row:
 			}
 			$this->content .= "</tbody>\n</table>\n</section>\n";
 		}

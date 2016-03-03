@@ -85,17 +85,17 @@ in horizontal dimension and less than 500 px in vertical).
 
 ### No subheaders in some tables
 
-Yes, I know. When I'll need it, I'll fix this. If you really need it - modify code at line 39 and 41
+Yes, I know. When I'll need it, I'll fix this. If you really need it - modify code at line where comments marked `** RE:`
 where Regular Expressions are reside. You may want to catch `tr` with `class="h"` to determine the subheader.
 
-Check line 60, where new tables are builts.
+Check line marked `** Table row:`, where new tables are builts.
 
 ### Only 2 columns some 3 column tables is retrived
 
-Are you really need it? If so, modify code if regular expressions at line 39 and 41. You may need to catch all 3 values,
-and at line 43 they can be added to array, that keep all gathered values.
+Are you really need it? If so, modify code if regular expressions at line where comments marked `** RE:`.
+You may need to catch all 3 values, and at neext close line marked `2016:`, they can be added to array which keep all gathered values.
 
-Check line 60, where new tables are builts.
+Check line marked `** Table row:`, where new tables are builts.
 	
 ## License
 
