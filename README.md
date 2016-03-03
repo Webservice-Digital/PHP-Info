@@ -4,13 +4,14 @@
 
 ## Purposes
 
-This one page admin tool was created to help manage several virtual hosting plans with different setting of PHP.
+This [one page](info.php) admin tool was created to help manage several virtual hosting plans with different settings of PHP.
 
-This tool can be easy embedded into any PHP-driven CMS, which in fact was done by me in some projects.
+This tool can be easily embedded into any PHP-driven CMS, which in fact was done by me in some projects.
 
 For easy reading and comparing settings on different hosting was done:
 
 ### 2002-2008
+
 - single PHP file
 - visual sectioning
 - section navigation pane
@@ -22,13 +23,14 @@ For easy reading and comparing settings on different hosting was done:
 - no credits and module descriptions, just technical info by key-value
 
 ### 2013
-- PHP5 OOP - compact file, easy reuse of PHPinfo code, PHP4 support was gone as unneccessary
+
+- PHP5 OOP - compact file, easy and safe reuse of PHPinfo code, PHP4 support was gone as unneccessary
 - LESS sources for stylesheets
 - 2 ready to use PHP files with different stylesheets embedded
 - styles optimized for Chrome and Firefox on tablets
 - dropped MySQL info and other non-standard info
 
-> to use with PHP4 take a look at `info-2008.php` in `dev` folder
+> to use with PHP4 take a look at [`info-2008.php`](dev/info-2008.php) in [`dev`](dev/) folder
 
 ### 2016
 
@@ -57,6 +59,13 @@ Just copy `info.php` to your virtual hosting by FTP or any another way into dire
 
 Strongly recommended to place this file in restricted area of your site or delete them when it become unneccessary: 
 PHP info gives large amount system info, which can be used 3d persons to bring lot of hedache to you and lot of destruction to your site.
+
+Also, you can run folowing code inside desired directory of server:
+
+```bash
+wget https://raw.githubusercontent.com/SynCap/PHP-Info/master/info.php
+```
+
 
 ## Known issues
 

@@ -6,6 +6,31 @@
  * @copyright	(c)2009,2013,2015 Constantin Loskutov, www.syncap.ru
  *
  */
+
+if (isset($_GET['native'])) {
+	/*
+		If we need, we can call native phpinfo(). In this case we don't need any other porcessings.
+		Just do it, then die. ;)
+
+		INFO_GENERAL        1
+		INFO_CREDITS        2
+		INFO_CONFIGURATION  4
+		INFO_MODULES        8
+		INFO_ENVIRONMENT   16
+		INFO_VARIABLES     32
+		INFO_LICENSE       64
+		INFO_ALL           -1
+
+		if requested mode is NOT integer in range of INFO_GENERAL..INFO_LICENSE, 
+		for example some textual or non-legal integer, we assume default value INFO_ALL
+	*/
+	$mode = $_GET['native'] | 64 > 0 
+		?$_GET['native'] 
+		: -1 ;
+	phpinfo($mode);
+	die();
+}
+
 class prettyPhpInfo
 {
 	public $nav = "";
