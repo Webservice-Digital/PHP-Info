@@ -49,8 +49,8 @@ if (isset($_GET['do'])) {
 			$remoteSource = @file_get_contents(PPI_GITHUB_SOURCE_PATH);
 			if (
 					($remoteSource !== FALSE)
-//					&&
-//					(file_put_contents(__FILE__, $remoteSource ) !== FALSE)
+					&&
+					(file_put_contents(__FILE__, $remoteSource ) !== FALSE)
 				) {
 				header('Location: '.$_SERVER["SCRIPT_NAME"]);
 				exit('Starting with updated version');
