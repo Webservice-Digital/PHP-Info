@@ -40,9 +40,9 @@ For easy reading and comparing settings on different hosting was done:
 	
 	1. optimization for browsers I'm use, 
 	2. possibility to quick change of a look, including FavIcon, 
-	3. possibility to quick modification of data on client side with DevTools
-	4. quick search/filters - as modern UI\UX trends: I've become old and lazy, I want press 1 key, but don't scroll :)
-	5. remember choosed color scheme in browser, not hosting
+	3. possibility to quick modify the data at client side with DevTools
+	4. quick search/filters - as modern UI\UX trends: I've become old and lazy, I want to press only key, but don't scroll :)
+	5. remember choosed color scheme in browser, not at hosting
 	6. just ONE file to deploy
 
 - no 3d party JS libraries are used
@@ -54,8 +54,9 @@ For easy reading and comparing settings on different hosting was done:
 Just copy `info.php` to your virtual hosting by FTP or any another way into directory wich can be reachable by http access.
 
 > **NOTE** check permissions of directory: 
-	1) on *NIX hosting file must be written with `644` at least
-	2) php scripts must be allowed to launch in this directory (check `.htaccess` files)
+
+	1) on *NIX hosting file must be written with `644` permissions at least
+	2) php scripts must be allowed to be launched in this directory (check `.htaccess` files)
 	3) directory must be under DOCUMET_ROOT
 
 Strongly recommended to place this file in restricted area of your site or delete them when it become unneccessary: 
@@ -97,9 +98,27 @@ Are you really need it? If so, modify code if regular expressions at line where 
 You may need to catch all 3 values, and at neext close line marked `2016:`, they can be added to array which keep all gathered values.
 
 Check line marked `** Table row:`, where new tables are builts.
+
+## TODOs
+
+* by now I see no neccessary to distribute this tool through Composer's Packagist or any other package distribution net, but if I'll see enough requests to do so, I'll do it. 100 request - is not enought, but 1 - can be, if need very-very much…
+
+## Non evident things you have to know to maximize effeciency of this tool
+
+Last changes brings some lazy life features:
+
+- No need to select `INFO_ALL` in native mode request select box, just click GO button in form, or hit the `Enter`, when form is focused
+
+- Going to native PHP info pages through top menu select goes like modern drop down menus does - just select desired mode and if execution of Javasript is enabled in your browser, request will be fired
+
+- Pressing `Esc` will clear filter box and restore visibility of all sections and corresponding navigation items. No matter which part of page is focused.
+
+- In most cases only pair of key's hits needed to bring desired section into viewport. To get find exact value - use browser builin serch functionality, usually just hit `Ctrl+F`. Using two level serching is much productive.
+
+- Fork this project and get the tool of your needs. Placing of non-minimized version of JS into `inof.php` lets you advantages of control the look of data through the browser's developing tools. I.e. you can change contents of view just inplace. Some example of this you can find in source of `dev/info.js`, modify it as you need at any time in modern browsers, don't waste time to check every value line by line, char by char. Hm, but when you get the result of native phpinfo, just `Ctrl+F` can help to you…
 	
 ## License
 
 Distribution granted with MIT [license](LICENSE)
 
-[php-info-logo-8]:dev/img/php-info-blue-8.png
+[php-info-logo-8]:dev/img/g1.png

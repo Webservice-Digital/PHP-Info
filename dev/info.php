@@ -144,15 +144,21 @@ $phpinfo = new prettyPhpInfo();
 				<form action="" method="GET" id="formShowNative">					
 					<input type="hidden" name="do" value="native">
 					<select name="mode" id="nativeMode">
-						<option selected>Show native with…</option>
-						<option value="-1">INFO_ALL</option>
-						<option value="1" >INFO_GENERAL</option>
-						<option value="2" >INFO_CREDITS</option>
-						<option value="4" >INFO_CONFIGURATION</option>
-						<option value="8" >INFO_MODULES</option>
-						<option value="16">INFO_ENVIRONMENT</option>
-						<option value="32">INFO_VARIABLES</option>
-						<option value="64">INFO_LICENSE</option>
+						<optgroup>
+							<option selected>Show native with…</option>
+						</optgroup>
+						<optgroup>
+							<option value="1" >INFO_GENERAL</option>
+							<option value="2" >INFO_CREDITS</option>
+							<option value="4" >INFO_CONFIGURATION</option>
+							<option value="8" >INFO_MODULES</option>
+							<option value="16">INFO_ENVIRONMENT</option>
+							<option value="32">INFO_VARIABLES</option>
+							<option value="64">INFO_LICENSE</option>
+						</optgroup>
+						<optgroup>
+							<option value="-1">INFO_ALL</option>
+						</optgroup>
 					</select>
 					<button type="submit" class="btn">&#10151;</button>
 				</form>
