@@ -7,7 +7,7 @@
  *
  */
 
-define('PPI_VERSION', '2016-35');
+define('PPI_VERSION', '2016-37');
 define('PPI_GITHUB_SOURCE_PATH', 'https://raw.githubusercontent.com/SynCap/PHP-Info/master/info.php');
 
 /*
@@ -61,18 +61,20 @@ if (isset($_GET['do'])) {
 
 }
 
+
+
 class prettyPhpInfo
 {
 	public $nav = "";
 	public $content = "";
 	public $info_arr = array();
 
-	const FILTER_FORM = <<<'FLTF'
+	public $FILTER_FORM = '
 <form action="" class="filterForm">
 	<input type="text" id="filterText">
 	<input type="reset" class="btn" value="&#10060;">
 </form>
-FLTF;
+';
 
 	/**
 	 * Grep the all info from built-in PHP function
@@ -116,7 +118,7 @@ FLTF;
 			}
 			$this->content .= "</tbody>\n</table>\n</section>\n";
 		}
-		$this->nav = "<div class=\"phpinfo-nav\">\n".$this::FILTER_FORM."\n<ul>\n$this->nav\n</ul></div>\n";
+		$this->nav = "<div class=\"phpinfo-nav\">\n".$this->FILTER_FORM."\n<ul>\n$this->nav\n</ul></div>\n";
 		return $this;
 	}
 }
