@@ -8,7 +8,7 @@
  */
 
 define('PPI_VERSION', '2016-35');
-define('PPI_GITHUB_SOURCE_PATH', 'https://raw.githubusercontent.com/SynCap/PHP-Info/master/info.php');
+define('PPI_GITHUB_SOURCE_PATH', 'https://raw.githubusercontent.com/Webservice-Digital/PHP-Info/master/info.php');
 
 /*
 
